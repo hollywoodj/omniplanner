@@ -76,7 +76,11 @@
         "deb"
       ],
       "category": "Office",
-      "desktopName": "OmniPlan",
+      "desktop": {
+        "entry": {
+          "Name": "OmniPlan"
+        }
+      },
       "syncDesktopName": true,
       "maintainer": "OmniPlan Clone <support@example.com>",
       "synopsis": "Project management with Gantt charts and OmniFocus bridge",
@@ -124,5 +128,10 @@
       "createStartMenuShortcut": true,
       "shortcutName": "OmniPlan"
     }
+  },
+  "allowScripts": {
+    "electron@35.7.5": true,
+    "electron-winstaller@5.4.0": true,
+    "esbuild@0.28.2": true
   }
 }
