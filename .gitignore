@@ -1,7 +1,6 @@
 node_modules/
 dist/
 web/dist/
-release/
 data/*.json
 !data/.gitkeep
 .DS_Store

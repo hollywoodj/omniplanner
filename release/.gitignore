@@ -1,0 +1,3 @@
+# Unpacked build output — regenerate with npm run build:electron:linux
+linux-unpacked/
+builder-debug.yml
