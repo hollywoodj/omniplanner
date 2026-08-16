@@ -41,6 +41,8 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4455);
+
+export function createApp() {
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "8mb" }));
@@ -499,6 +501,30 @@ if (existsSync(webDist)) {
   app.use(express.static(webRoot));
 }
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`OmniPlan ${loadState().version} API on http://0.0.0.0:${PORT}`);
-});
+return app;
+}
+
+export function startServer(port = PORT, host = "127.0.0.1"): Promise<{ port: number; close: () => Promise<void> }> {
+  const app = createApp();
+  return new Promise((resolve, reject) => {
+    const server = app.listen(port, host, () => {
+      console.log(`OmniPlan ${loadState().version} API on http://${host}:${port}`);
+      resolve({
+        port,
+        close: () =>
+          new Promise((res, rej) => {
+            server.close((err) => (err ? rej(err) : res()));
+          }),
+      });
+    });
+    server.on("error", reject);
+  });
+}
+
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+if (isMain) {
+  startServer(PORT, "0.0.0.0").catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
