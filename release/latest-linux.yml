@@ -1,0 +1,12 @@
+version: 4.10.3
+files:
+  - url: OmniPlan-4.10.3.AppImage
+    sha512: 8BVR2ZclV0kOUoY/jU8iycWxuNzVxQUgjfkHGKvBsMD8MAshJvIOWbwm0hAtPgcbF7F5ZP4LItn3hK9sThIiMg==
+    size: 113993186
+    blockMapSize: 120310
+  - url: omniplan_4.10.3_amd64.deb
+    sha512: eT/bU5jW0UpaBISed4YIRDH1mwYcV+TTydn/8wj6nR9HlX9cwcEqbpaE6aL4Wqj/t7w2FaNRbvNx4SrfSlkSRg==
+    size: 89465352
+path: OmniPlan-4.10.3.AppImage
+sha512: 8BVR2ZclV0kOUoY/jU8iycWxuNzVxQUgjfkHGKvBsMD8MAshJvIOWbwm0hAtPgcbF7F5ZP4LItn3hK9sThIiMg==
+releaseDate: '2026-08-16T23:27:47.885Z'

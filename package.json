@@ -1,0 +1,128 @@
+{
+  "name": "omniplan",
+  "version": "4.10.3",
+  "description": "OmniPlan 4 clone — project management with Gantt, resources, Omni Automation, and OmniFocus bridge",
+  "author": "OmniPlan Clone",
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "bin": {
+    "omniplan": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "tsx watch src/server/index.ts",
+    "dev:web": "vite --config web/vite.config.ts",
+    "dev:electron": "concurrently -k \"npm run dev:api\" \"wait-on http://127.0.0.1:4455/api/health && electron .\"",
+    "build": "tsc -p tsconfig.json && vite build --config web/vite.config.ts",
+    "build:electron": "npm run build && electron-builder --publish never",
+    "build:electron:linux": "npm run build && electron-builder --linux --publish never",
+    "build:electron:mac": "npm run build && electron-builder --mac --publish never",
+    "build:electron:win": "npm run build && electron-builder --win --publish never",
+    "pack": "npm run build && electron-builder --dir --publish never",
+    "start": "node dist/server/index.js",
+    "electron": "electron .",
+    "cli": "tsx src/cli/index.ts",
+    "omniplan": "tsx src/cli/index.ts",
+    "test": "tsx --test test/**/*.test.ts",
+    "seed": "tsx src/cli/index.ts seed"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.2.0",
+    "electron": "^35.7.5",
+    "electron-builder": "^26.0.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.6",
+    "wait-on": "^8.0.4",
+    "zustand": "^5.0.6"
+  },
+  "build": {
+    "appId": "com.omniplan.clone",
+    "productName": "OmniPlan",
+    "copyright": "Copyright © 2026 OmniPlan Clone",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "web/dist/**/*",
+      "electron/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "dist/**/*",
+      "web/dist/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office",
+      "desktopName": "OmniPlan",
+      "syncDesktopName": true,
+      "maintainer": "OmniPlan Clone <support@example.com>",
+      "synopsis": "Project management with Gantt charts and OmniFocus bridge",
+      "description": "OmniPlan 4 clone with outline, Gantt, network, and resource views, plus CLI/API and Omni Automation integration."
+    },
+    "deb": {
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "dmg": {
+      "title": "OmniPlan ${version}",
+      "backgroundColor": "#ececec"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "OmniPlan"
+    }
+  }
+}

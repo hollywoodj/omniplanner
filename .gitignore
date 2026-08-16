@@ -1,0 +1,10 @@
+node_modules/
+dist/
+web/dist/
+data/*.json
+!data/.gitkeep
+.DS_Store
+*.log
+.env
+coverage/
+.vite/
