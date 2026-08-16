@@ -1,0 +1,8 @@
+version: 4.10.3
+files:
+  - url: OmniPlan-Setup-4.10.3.exe
+    sha512: /maoFaSEBIESlrQdsczurnkFFGKAlEQl6HrSNJZ2jztb/hcJHQABhRiwpBjG+bTt4kq+2wZFf2n8oPcP4gtWjA==
+    size: 84525227
+path: OmniPlan-Setup-4.10.3.exe
+sha512: /maoFaSEBIESlrQdsczurnkFFGKAlEQl6HrSNJZ2jztb/hcJHQABhRiwpBjG+bTt4kq+2wZFf2n8oPcP4gtWjA==
+releaseDate: '2026-08-16T23:47:51.771Z'

@@ -1,3 +1,5 @@
-# Unpacked build output — regenerate with npm run build:electron:linux
+# Unpacked build output — regenerate with npm run build:electron:linux / :win
 linux-unpacked/
+win-unpacked/
+.icon-ico/
 builder-debug.yml
