@@ -15,7 +15,45 @@ npx tsx src/cli/index.ts --help
 
 Production-style: `npm run build && PORT=4455 npm start` (serves `web/dist` from the API).
 
-## What’s cloned
+## Desktop app (Electron)
+
+Build native installers (bundles the API + UI; documents live in the OS user-data folder):
+
+```bash
+npm install
+npm run build:electron:linux   # AppImage + .deb
+npm run build:electron:mac     # .dmg + .zip (on macOS)
+npm run build:electron:win     # NSIS .exe (on Windows)
+```
+
+Artifacts land in `release/`:
+
+| Platform | Files |
+|---|---|
+| Linux | `OmniPlan-4.10.3.AppImage`, `omniplan_4.10.3_amd64.deb` |
+| macOS | `OmniPlan-4.10.3.dmg` |
+| Windows | `OmniPlan Setup 4.10.3.exe` |
+
+Install examples:
+
+```bash
+# Linux AppImage (portable)
+chmod +x release/OmniPlan-4.10.3.AppImage
+./release/OmniPlan-4.10.3.AppImage
+
+# Linux Debian/Ubuntu
+sudo dpkg -i release/omniplan_4.10.3_amd64.deb
+```
+
+Run in development without packaging:
+
+```bash
+npm run dev:api    # terminal 1
+npm run electron   # terminal 2 (after API is up)
+```
+
+User projects are stored at `~/.config/OmniPlan/data/` on Linux (Electron `userData`).
+
 
 ### Views (View menu / toolbar switcher)
 
