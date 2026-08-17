@@ -8,12 +8,12 @@ This is not affiliated with The Omni Group. UI, menus, inspectors, and integrati
 
 ```bash
 npm install
-npm run dev          # API :4455  ·  UI :5173 (proxied)
+npm run dev          # API :4577  ·  UI :5173 (proxied)
 npm test
 npx tsx src/cli/index.ts --help
 ```
 
-Production-style: `npm run build && PORT=4455 npm start` (serves `web/dist` from the API).
+Production-style: `npm run build && PORT=4577 npm start` (serves `web/dist` from the API).
 
 ## Desktop app (Electron)
 
@@ -97,7 +97,7 @@ npx tsx src/cli/index.ts tell omnifocus --function targetAppFunction --argument 
 
 ## HTTP API
 
-Base URL: `http://127.0.0.1:4455` (override with `PORT` / `OMNIPLAN_URL`).
+Base URL: `http://127.0.0.1:4577` (override with `PORT` / `OMNIPLAN_URL`).
 
 | Method | Path | Purpose |
 |---|---|---|

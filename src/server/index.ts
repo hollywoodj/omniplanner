@@ -40,7 +40,7 @@ import {
 } from "../core/index.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PORT = Number(process.env.PORT || 4455);
+const PORT = Number(process.env.PORT || 4577);
 
 export function createApp() {
 const app = express();

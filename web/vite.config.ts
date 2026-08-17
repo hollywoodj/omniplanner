@@ -8,9 +8,9 @@ export default defineConfig({
     port: 5173,
     host: true,
     proxy: {
-      "/api": "http://127.0.0.1:4455",
-      "/automation": "http://127.0.0.1:4455",
-      "/bridge": "http://127.0.0.1:4455",
+      "/api": "http://127.0.0.1:4577",
+      "/automation": "http://127.0.0.1:4577",
+      "/bridge": "http://127.0.0.1:4577",
     },
   },
   build: {

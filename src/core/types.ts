@@ -313,7 +313,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   sendAnonymousInfo: false,
   appearance: "auto",
   omnifocusUrl: process.env.OMNIFOCUS_URL || "http://127.0.0.1:4456",
-  omniplanUrl: process.env.OMNIPLAN_URL || "http://127.0.0.1:4455",
+  omniplanUrl: process.env.OMNIPLAN_URL || "http://127.0.0.1:4577",
 };
 
 export const OUTLINE_COLUMNS = [

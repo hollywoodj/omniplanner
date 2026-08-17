@@ -31,7 +31,7 @@ import {
   type OFToOPTaskPayload,
 } from "../core/index.js";
 
-const API = process.env.OMNIPLAN_URL || "http://127.0.0.1:4455";
+const API = process.env.OMNIPLAN_URL || "http://127.0.0.1:4577";
 
 const program = new Command();
 program.name("omniplan").description("OmniPlan 4 clone CLI — same surface as the app, API, and OmniFocus bridge").version("4.10.3");

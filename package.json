@@ -13,7 +13,7 @@
     "dev": "concurrently -n api,web -c blue,green \"npm run dev:api\" \"npm run dev:web\"",
     "dev:api": "tsx watch src/server/index.ts",
     "dev:web": "vite --config web/vite.config.ts",
-    "dev:electron": "concurrently -k \"npm run dev:api\" \"wait-on http://127.0.0.1:4455/api/health && electron .\"",
+    "dev:electron": "concurrently -k \"npm run dev:api\" \"wait-on http://127.0.0.1:4577/api/health && electron .\"",
     "build": "tsc -p tsconfig.json && vite build --config web/vite.config.ts",
     "build:electron": "npm run build && electron-builder --publish never",
     "build:electron:linux": "npm run build && electron-builder --linux --publish never",

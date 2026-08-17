@@ -5,13 +5,13 @@ const http = require("http");
 const fs = require("fs");
 
 const APP_NAME = "OmniPlan";
-const DEFAULT_PORT = 4455;
+const DEFAULT_PORT = 4577;
 let mainWindow = null;
 let serverProcess = null;
 let serverPort = DEFAULT_PORT;
 
 function appRoot() {
-  return app.isPackaged ? app.getAppPath() : path.join(__dirname, "..");
+  return app.isPackaged ? process.resourcesPath : path.join(__dirname, "..");
 }
 
 function serverEntryPath() {
